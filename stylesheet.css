@@ -5,12 +5,18 @@ img {
 	margin: auto;
 }
 
+h1{
+	font-family: Garamond, san serif;
+	font-size: 24px;
+}
+
 p {
 	text-align: center;
 	font-family: Garamond, serif;
 	font-size: 18px;
 }
 
+/*
 div {
 	border-radius: 5px;
 	border: 2px solid #6495ED;
@@ -32,3 +38,4 @@ span {
 	font-size: 18px;
 	color: #ffffff;
 }
+*/
