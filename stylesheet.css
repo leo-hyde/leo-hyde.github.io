@@ -11,10 +11,19 @@ h1{
 }
 
 p {
-	text-align: center;
 	font-family: Garamond, serif;
 	font-size: 18px;
 }
+
+#header {
+    background-color: green;
+    height: 65px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
 
 /*
 div {
