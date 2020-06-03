@@ -1,45 +1,82 @@
 <!DOCTYPE html>
-<html>
-	<head>
-		<link type="text/css" rel="stylesheet" href="stylesheet.css"/>
-		<title>About Me</title>
-	</head>
-	
-	<body>
-	
-	<ul>
-	<li><a href="#Intro"> Introduction </a></li>
-	<li><a href="#Activites"> Activites </a></li>
-	<li><a href="#Directions"> Directions </a></li>
-	</ul>
+<html lang="en">
 
-	
-		<img src="http://static.indianexpress.com/m-images/M_Id_334724_Magic_4.jpg"/>
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="lib/chartist/chartist.min.css">
+  <link href="https://unpkg.com/tabulator-tables@4.0.5/dist/css/tabulator.min.css" rel="stylesheet">
 
-		<div id="Intro">
-		<h1>Introduction</h1>
-		<p>
-		Etiam ullamcorper, nulla ut porta euismod, mauris magna dapibus urna, vel aliquet elit nulla eu eros. Donec lacus diam, vulputate a dui quis, elementum convallis dolor. Phasellus gravida neque ut ipsum condimentum, ac faucibus lacus ultricies. Aenean risus nunc, suscipit ac elit sed, volutpat convallis libero. Fusce aliquet, est quis interdum sodales, quam libero venenatis arcu, et pretium mi diam sed dolor. Praesent vulputate lacinia turpis id placerat. Suspendisse dignissim lacus dui. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Cras ut felis vel orci aliquet ultrices. In ac urna gravida, molestie massa ut, interdum felis. Sed sollicitudin felis vitae ante porttitor pretium. Proin vel metus eget dolor rutrum egestas. In vitae pulvinar urna. Etiam vehicula a massa quis tempor.
-		</p>
-		</div>
+  <script src='lib/d3.js'></script>
+  <script type="text/javascript" src="https://unpkg.com/tabulator-tables@4.0.5/dist/js/tabulator.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/plotly.js/1.51.1/plotly-basic.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js"></script>
 
-		<div id="Activites">
-		<h1>Activites</h1>
-		<p>
-		Maecenas non viverra neque. Nunc sed interdum nisi, at facilisis ipsum. Morbi lobortis ornare mauris, at consequat diam pellentesque nec. Quisque viverra quam volutpat odio tempor finibus. Suspendisse auctor dignissim nunc id interdum. Vivamus condimentum metus vitae augue pulvinar, in laoreet leo dictum. Maecenas ligula lorem, imperdiet at arcu sed, imperdiet convallis mi. Ut maximus nisl at mattis tincidunt. Quisque sed porta erat. Nulla dictum ultrices nisi at lobortis. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
-		</p>
-		</div>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+    integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+</head>
+
+<body>
+
+  <div class="jumbotron text-center">
+    <h1>Stage 2 Optioneering Tool</h1>
+  </div>
+
+  <div class="container">
+
+    <input type="range" class="custom-range" id="slider1" value="1" min="1" max="100"
+      oninput="ageOutputId.value = slider1.value">
+    <output name="ageOutputName" id="ageOutputId">1</output>
+
+    <br></br>
+
+    <!-- *** User Controls  -->
+    <h3>User Controls</h3>
+    <div class="row">
+      <br></br>
+
+      <div class="col-lg-4"> Choose Primary Span: <span id="output1"></span> (m)
+        <input type="range" class="custom-range" id="customRange1" min="0" value="0" step="1">
+      </div>
+
+      <div class="col-lg-4"> Choose Secondary Span: <span id="output2"></span> (m)
+        <input type="range" class="custom-range" id="customRange2" min="0" value="0" step="1">
+      </div>
+
+      <div class="col-lg-4"> Choose Beam Depth: <span id="output3"></span> (mm)
+        <input type="range" class="custom-range" id="customRange3" min="0" value="0" step="1">
+      </div>
+
+    </div>
+    <br></br>
+
+    <!-- *** Graphs  -->
+    <div class="row">
+      <div class="col-lg-6">
+        <h3>Embodied Carbon: Total</h3>
+        <div id='Plotly1'> </div>
+      </div>
+
+      <div class="col-lg-6">
+        <h3>Embodied Carbon: By Material</h3>
+        <div id='Plotly2'> </div>
+      </div>
+    </div>
+
+    <br></br>
+
+    <div class="row">
+      <div class="col-lg-12">
+        <h3>Embodied Carbon: All Options</h3>
+        <div id='myDiv'> </div>
+      </div>
+    </div>
+  </div>
 
 
-		<div id="Directions">
-		<h1>Directions</h1>
-		<p>
-		Cras vehicula vitae tellus gravida tempus. Morbi gravida posuere nisl varius condimentum. Nulla in tortor tempor nisi lobortis congue. Ut at lacus purus. Maecenas fringilla dolor vel volutpat tincidunt. Suspendisse eu neque in est blandit blandit in et ligula. Sed ornare ullamcorper ligula, non lobortis turpis efficitur at. Cras vehicula felis a pellentesque lacinia.
-		</p>
-		</div>
+  <script src="src/s2Optioneeringv01.js"></script>
 
-		
-		<!---		<div>
-			<a href="https://www.facebook.com/codecademy">Friend us on <span>Facebook!</span></a>
-		</div> --->
-	</body> 
+</body>
+
+</html>
